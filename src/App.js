@@ -1,34 +1,48 @@
 import React, { useState } from 'react';
+import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
 import './App.css';
+import Message from './Message';
 
 function App() {
   const [input, setInput] = useState('');
-  const [messeges, setMesseges] = useState(['hey', 'hello', 'test']);
+  const [messages, setMessages] = useState(['hey', 'hello', 'test']);
 
   console.log(input);
-  console.log(messeges);
+  console.log(messages);
 
-  const sendMessege = (event) => {
-    setMesseges([...messeges, input]);
+  const sendMessage = (event) => {
+    event.preventDefault();
+    setMessages([...messages, input]);
     setInput('');
   };
 
   return (
     <div className="App">
-      <h1>Hello Facebook Messenger</h1>
+      <h1>Hello Facebook Messanger</h1>
 
       <form>
-        <input
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-        />
-        <button onClick={sendMessege}>Send Messenge</button>
+        <FormControl>
+          <InputLabel>Enter a message...</InputLabel>
+          <Input
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+          />
+          <Button
+            disabled={!input}
+            variant="contained"
+            color="primary"
+            type="submit"
+            onClick={sendMessage}
+          >
+            Send Message
+          </Button>
+        </FormControl>
       </form>
 
       {/* messege themselves */}
 
-      {messeges.map((messege) => (
-        <p>{messege}</p>
+      {messages.map((message) => (
+        <Message text={message} />
       ))}
     </div>
   );

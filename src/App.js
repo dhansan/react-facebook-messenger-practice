@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [input, setInput] = useState('');
+  const [messeges, setMesseges] = useState(['hey', 'hello', 'test']);
+
+  console.log(input);
+  console.log(messeges);
+
+  const sendMessege = (event) => {
+    setMesseges([...messeges, input]);
+    setInput('');
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello Facebook Messenger</h1>
+
+      <form>
+        <input
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+        />
+        <button onClick={sendMessege}>Send Messenge</button>
+      </form>
+
+      {/* messege themselves */}
+
+      {messeges.map((messege) => (
+        <p>{messege}</p>
+      ))}
     </div>
   );
 }

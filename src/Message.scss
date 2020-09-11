@@ -5,17 +5,17 @@ $blue: #0b81ff;
   padding: 10px;
   margin: 10px;
   width: fit-content;
-  .message__user {
+  &__user {
     margin-left: auto;
     color: white;
     text-align: left !important;
   }
 
-  .message__userCard {
+  &__userCard {
     background-color: $blue !important;
   }
 
-  .message__guestCard {
+  &__guestCard {
     background-color: $grey !important;
   }
 }

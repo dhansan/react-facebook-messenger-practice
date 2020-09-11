@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Link website deploy
+## Link facebook messanger clone
 https://facebook-messenger-clone-5d716.web.app/
 
 ## Available Scripts
